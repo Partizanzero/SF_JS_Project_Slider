@@ -11,3 +11,4 @@ Modul - JS, Project - Slider
 - Кружочки между стрелками (включают нужный слайд);
 - Ссылки сверху слайдера (включают нужный слайд).
 
+https://codepen.io/partizanzero/pen/jOXBoGZ
