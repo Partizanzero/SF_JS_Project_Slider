@@ -137,7 +137,7 @@ function initSlider(options) {
     sliderTitle.innerText = cropTitle(images[num].title, 50);
   }
 
-  /* ---- 2.7 Ф-я обрезания описаний более 50 символов у слайдов ----- 
+  /* ---- 2.7 Ф-я обрезания описаний более 50 символов у слайдов ----- */
   function cropTitle(title, size) {
     if (title.length <= size) {
       return title;
