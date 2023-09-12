@@ -36,6 +36,8 @@ function initSlider(options) {
     dots: true,
     autoplay: false,
   };
+
+   /* ----- 0. ПЕРЕМЕННЫЕ ---- */
   
   let sliderImages = document.querySelector(".slider__images");
   let sliderArrows = document.querySelector(".slider__arrows");
@@ -55,6 +57,15 @@ function initSlider(options) {
   if (options.autoplay) {
     initAutoplay();
   }
+
+     /* ----- 1. ОБРАБОТЧИКИ ---- */
+    sliderArrows.addEventListener("mouseover", () => {
+    sliderOptions.isPausedAutoplay = true;
+  });
+  
+    sliderArrows.addEventListener("mouseout", () => {
+    sliderOptions.isPausedAutoplay = false;
+  });
 
   /* ----- 2. ФУНКЦИИ ---- */
 
@@ -138,9 +149,11 @@ function initSlider(options) {
   /* ---- 2.8 Ф-я автопроигрывания слайдов ----- */
   function initAutoplay() {
     setInterval(() => {
-      let curNumber = +sliderImages.querySelector(".active").dataset.index;
-      let nextNumber = curNumber === images.length - 1 ? 0 : curNumber + 1;
-      moveSlider(nextNumber);
+      if (!sliderOptions.isPausedAutoplay) {
+        let curNumber = +sliderImages.querySelector(".active").dataset.index;
+        let nextNumber = curNumber === images.length - 1 ? 0 : curNumber + 1;
+        moveSlider(nextNumber);
+      }
     }, options.autoplayInterval);
   }
 }
@@ -153,6 +166,7 @@ let sliderOptions = {
   titles: true,
   autoplay: true,
   autoplayInterval: 5000,
+  isPausedAutoplay = false; //автопроигрывание включено
 };
 
 document.addEventListener("DOMContentLoaded", function () {
