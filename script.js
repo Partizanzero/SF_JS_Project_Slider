@@ -166,7 +166,7 @@ let sliderOptions = {
   titles: true,
   autoplay: true,
   autoplayInterval: 5000,
-  isPausedAutoplay = false; //автопроигрывание включено
+  isPausedAutoplay: false, //автопроигрывание включено
 };
 
 document.addEventListener("DOMContentLoaded", function () {
